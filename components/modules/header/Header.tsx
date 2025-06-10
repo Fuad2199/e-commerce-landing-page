@@ -1,0 +1,16 @@
+import React from 'react';
+import SocialMenu from './SocialMenu';
+import MainMenu from './MainMenu';
+import Menus from './Menus';
+
+const Header = () => {
+  return (
+    <header>
+      <SocialMenu className="hidden lg:block"/>
+      <MainMenu/>
+      <Menus className="hidden lg:block"/>
+    </header>
+  );
+};
+
+export default Header;
