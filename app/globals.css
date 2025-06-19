@@ -7,10 +7,8 @@
   --color-secondary-100: #ffe7e1;
   --color-secondary-200: #ffd4c8;
   --color-secondary-300: var(--secondary-300);
+  --color-secondary-500: var(--secondary-500);
   --color-secondary-700: var(--secondary-700);
-  --color-gray-50: var(--color-gray-50);
-  --color-gray-600: var(--color-gray-600);
-  --color-gray-900: var(--color-gray-900);
   --color-warning-50: var(--warning-50);
   --color-warning-200: var(--warning-200);
   --color-warning-500: var(--warning-500);
@@ -62,15 +60,19 @@
   .text-body-lg-400 {
     @apply text-lg leading-6 tracking-normal;
   }
+  .text-body-md-600 {
+    @apply leading-6 tracking-normal font-semibold;
+  }
+  .background-image-url {
+    @apply bg-[url('https://res.cloudinary.com/dhzekqgvu/image/upload/v1750354635/Banner_bt5vkf.svg')];
+  }
 }
 
 :root {
   --radius: 0.625rem;
   --secondary-300: oklch(0.8398 0.0901 35.93);
+  --secondary-500: oklch(0.694 0.1529 243.13);
   --secondary-700: oklch(0.4799 0.102 242.62);
-  --gray-50: oklch(0.9659 0.0025 228.78);
-  --gray-600: oklch(0.5224 0.0184 227.24);
-  --gray-900: oklch(0.2246 0.0074 248.16);
   --primary-500: oklch(0.73 0.1709 49.98);
   --danger-200: oklch(0.8496 0.0695 18.62);
   --warning-50: oklch(0.9824 0.0251 99.52);

@@ -14,9 +14,13 @@ const LanguageCurrency = ({
 }: {
   className?: string;
 }) => {
-  const switchLocale = (val: string) => {};
+  const switchLocale = (val: string) => {
+    console.log('Selected Locale:', val)
+  };
   
-  const switchCurrency = (val: string) => {};
+  const switchCurrency = (val: string) => {
+    console.log('Selected Currency:', val)
+  };
 
   return (
     <div className={cn(className, "flex flex-wrap justify-center gap-x-2 w-auto")}>
@@ -30,7 +34,7 @@ const LanguageCurrency = ({
             'focus:ring-offset-0'
           )}
         >
-          <SelectValue />
+          <SelectValue placeholder="Language"/>
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="en">
@@ -67,7 +71,7 @@ const LanguageCurrency = ({
             'focus:ring-0 focus:ring-offset-0'
           )}
         >
-          <SelectValue />
+          <SelectValue placeholder="Currency"/>
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="usd">
