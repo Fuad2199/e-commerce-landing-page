@@ -25,7 +25,7 @@ const CategoryList = () => {
             className="group-hover:text-gray-900"
           />
           {/* sub category menu */}
-          <div className="hidden group-hover:grid absolute h-full lg:w-175 xl:w-[868px] bg-white shadow-xl border top-0 left-62.5 p-5 gap-5 grid-cols-[100px_1fr_1fr] xl:grid-cols-[164px_1fr_1fr]">
+          <div className="hidden group-hover:grid absolute h-full lg:w-175 xl:w-[868px] bg-white shadow-xl border top-0 left-60 p-5 gap-5 grid-cols-[100px_1fr_1fr] xl:grid-cols-[164px_1fr_1fr]">
             {/* column 1 */}
             <div className="border">
               <ul>
