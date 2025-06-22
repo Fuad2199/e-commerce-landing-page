@@ -6,8 +6,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import CategoryList from './CategoryList';
+import { TypeCategoryModel, TypeProductModel, TypeSlideModel } from '@/types/models';
 
-const Menus = ({ className }: { className?: string }) => {
+const Menus = ({ className, categories, products, campaigns }: { className?: string; categories: TypeCategoryModel[]; products: TypeProductModel[]; campaigns: TypeSlideModel[] }) => {
   return (
     <div className={cn(className, 'h-20 bg-white border-b')}>
       <Container>
@@ -23,10 +24,11 @@ const Menus = ({ className }: { className?: string }) => {
                 all category
                 <IoIosArrowDown />
               </RectangleButton>
-              <CategoryList/>
+              <CategoryList categories={categories} products={products} campaigns={campaigns}/>
             </div>
             {/* pages */}
             <div className="flex items-center gap-6">
+
               <Link
                 href="/"
                 className="flex gap-[6px] items-center"
@@ -41,48 +43,7 @@ const Menus = ({ className }: { className?: string }) => {
                   Track order
                 </span>
               </Link>
-              <Link
-                href="/"
-                className="flex gap-[6px] items-center"
-              >
-                <Image
-                  src="/images/ArrowsCounterClockwise.svg"
-                  alt="logo"
-                  width="24"
-                  height="24"
-                />
-                <span className="flex items-center text-gray-600 text-body-sm-400">
-                  Compare
-                </span>
-              </Link>
-              <Link
-                href="/"
-                className="flex gap-[6px] items-center"
-              >
-                <Image
-                  src="/images/Headphones.svg"
-                  alt="logo"
-                  width="24"
-                  height="24"
-                />
-                <span className="flex items-center text-gray-600 text-body-sm-400">
-                  Custom Support
-                </span>
-              </Link>
-              <Link
-                href="/"
-                className="flex gap-[6px] items-center"
-              >
-                <Image
-                  src="/images/Info.svg"
-                  alt="logo"
-                  width="24"
-                  height="24"
-                />
-                <span className="flex items-center text-gray-600 text-body-sm-400">
-                  Need Help
-                </span>
-              </Link>
+              
             </div>
           </div>
           {/* right side */}

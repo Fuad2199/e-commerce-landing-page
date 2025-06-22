@@ -171,7 +171,7 @@ export type TypeCategoryModel = {
   user_id: string;
   status: "draft" | "publish" | "archive";
   createdAt: Date;
-  subCategory: string[];
+  subCategory: TypeSubCategoryModel[];
 };
 
 export type TypeTagModel = {
