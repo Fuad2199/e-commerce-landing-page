@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Providers from "@/providers/index";
+import Providers from "@/providers/LayoutWrapper";
 import publicSans from "./fonts"
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${publicSans.className} antialiased`}>
-        <Providers>{children}</Providers>
+        <Providers>{children}
+        </Providers>
+        <Toaster/>
       </body>
     </html>
   );

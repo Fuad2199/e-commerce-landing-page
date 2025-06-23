@@ -1,3 +1,4 @@
+import { TypeSlideItemModel } from './models';
 //Models types
 
 export type statusStoreEnum = "online" | "pending" | "suspended";
@@ -90,6 +91,18 @@ export type TypeTrackActivityModel = {
   activity: string;
   user_id: string;
 };
+
+export type TypeSlideModel = {
+  _id: string;
+  name: string;
+  description: string;
+  slug: string;
+  image: string;
+  user_id: string;
+  status: "draft" | "publish" | "archive";
+  slideItem: TypeSlideItemModel[];
+  createdAt: Date;
+}
 
 export type TypeImageModel = {
   url: string;
@@ -280,6 +293,18 @@ export type TypePmethodModel = {
   createdAt: Date;
 };
 
+export type TypeSlideModel = {
+  _id: string;
+  name: string;
+  description: string;
+  slug: string;
+  image: string;
+  user_id: string;
+  status: "draft" | "publish" | "archive";
+  slideItem: TypeSlideItemModel[];
+  createdAt: Date;
+};
+
 export type TypeSlideItemModel = {
   _id: string;
   name: string;
@@ -299,18 +324,6 @@ export type TypeSlideItemModel = {
   createdAt: Date;
   updatedAt?: Date;
   approvedAt?: Date;
-};
-
-export type TypeSlideModel = {
-  _id: string;
-  name: string;
-  description: string;
-  slug: string;
-  image: string;
-  user_id: string;
-  status: "draft" | "publish" | "archive";
-  slideItem: string[];
-  createdAt: Date;
 };
 
 export type TypePageModel = {

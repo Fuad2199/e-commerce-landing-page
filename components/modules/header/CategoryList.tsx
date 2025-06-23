@@ -1,5 +1,6 @@
 "use client"
 
+import { addToCart } from '@/store/cartSlice';
 import {
   TypeCategoryModel,
   TypeProductModel,
@@ -8,8 +9,11 @@ import {
 } from '@/types/models';
 import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { toast } from 'sonner';
 
 const CategoryList = ({
   categories,
@@ -24,22 +28,34 @@ const CategoryList = ({
   const filterProducts = products.filter(
     item => item.featured == true
   );
+  const dispatch = useDispatch()
+  const handleAddCampaignProduct = (product: TypeProductModel) => {
+    // add product campaign to cart
+    dispatch(
+      // set reducer action
+      addToCart({
+        store: product.store,
+            variant: product.productVariants[0],
+            productName: product.name,
+            productImage: product.images[0].url,
+            qty: 1
+      })
+    )
+    toast("Product added")
+  }
   return (
     <div className="absolute h-109 w-60 shadow-xl top-16 border bg-white">
       <ul>
         {categories?.map((item, idx) => (
           <li
-            onClick={() =>
-              router.push(
-                `/categories/${item.slug}/products`
-              )
-            }
             key={idx}
             className="h-9 w-full flex items-center justify-between px-4 group hover:bg-gray-50 cursor-pointer"
           >
+            <Link href={`/categories/${item.slug}/products`}>
             <span className="text-body-sm-400 text-gray-600 capitalize group-hover:text-gray-900 cursor-pointer">
               {item.name}
             </span>
+            </Link>
             {item.subCategory.length > 0 && (
               <>
                 <ChevronRight
@@ -108,7 +124,10 @@ const CategoryList = ({
                   {/* campaigns */}
                   {
                     campaigns.length > 0 ? (
-                      <div className="border bg-center" style={{
+                      <div 
+                        onClick={() => handleAddCampaignProduct(campaigns[0].slideItem[0].product)}
+                        className="border bg-center" 
+                        style={{
                         backgroundImage: `url(${campaigns[0].image})`
                       }}></div>
                     ) : (

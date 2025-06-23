@@ -5,6 +5,7 @@ import Menus from './Menus';
 import { getCategories } from '@/actions/category';
 import { getProducts } from '@/actions/product';
 import { getCampaigns } from '@/actions/campaign';
+import { getPages } from '@/actions/page';
 
 const Header = async () => {
   const categories = await getCategories();
@@ -12,6 +13,7 @@ const Header = async () => {
   const campaigns = await getCampaigns(
     'homepage-product-best-deals-section'
   );
+  const pages = await getPages();
   return (
     <header>
       <SocialMenu className="hidden lg:block" />
@@ -21,6 +23,7 @@ const Header = async () => {
         categories={categories}
         products={products}
         campaigns={campaigns}
+        pages={pages}
       />
     </header>
   );

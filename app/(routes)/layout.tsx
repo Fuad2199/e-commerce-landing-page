@@ -5,7 +5,11 @@ interface RoutesLayoutProps {
 }
 
 const RoutesLayout = ({ children }: RoutesLayoutProps) => {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <div>{children}</div>
+    </div>
+  );
 };
 
 export default RoutesLayout;
